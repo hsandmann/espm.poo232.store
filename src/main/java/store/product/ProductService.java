@@ -27,8 +27,8 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
-    public void create(Product in) {
-        productRepository.save(new ProductModel(in));
+    public Product create(Product in) {
+        return productRepository.save(new ProductModel(in)).to();
     }
 
 }
