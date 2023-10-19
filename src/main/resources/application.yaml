@@ -1,0 +1,8 @@
+
+spring:
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/poo
+    username: postgres
+    password: Post123321
+    driver-class-name: org.postgresql.Driver
+    # driver-class-name: com.mysql.cj.jdbc.Driver

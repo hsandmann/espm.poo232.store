@@ -24,12 +24,13 @@ public class ProductResource {
 
     @GetMapping("/product")
     public List<ProductOut> list() {
-        return productService.list();
+        return productService.list().stream().map(ProductParser::to).toList();
     }
 
     @GetMapping("/product/{id}")
     public ProductOut get(@PathVariable(required = true) String id) {
-        return productService.find(id);
+        Product found = productService.find(id);
+        return found == null ? null : ProductParser.to(found);
     }
 
     @DeleteMapping("/product/{id}")
@@ -39,7 +40,7 @@ public class ProductResource {
 
     @PostMapping("/product")
     public void create(@RequestBody ProductIn in) {
-        productService.create(in);
+        productService.create(ProductParser.to(in));
     }
 
 }
