@@ -20,7 +20,8 @@ public class ProductService {
     }
 
     public Product find(String id) {
-        return productRepository.findById(id).orElse(null).to();
+        ProductModel model = productRepository.findById(id).orElse(null);
+        return model == null ? null : model.to();
     }
 
     public void delete(String id) {
