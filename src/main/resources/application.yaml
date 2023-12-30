@@ -5,11 +5,10 @@ spring:
   application:
     name: store-product
   datasource:
-    url: jdbc:postgresql://127.0.0.1:5432/poo
-    username: postgres
-    password: Post123321
+    url: ${DATABASE_URL:jdbc:postgresql://127.0.0.1:5432/poo}
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:Post123321}
     driver-class-name: org.postgresql.Driver
-    # driver-class-name: com.mysql.cj.jdbc.Driver
 
 eureka:
   client:
